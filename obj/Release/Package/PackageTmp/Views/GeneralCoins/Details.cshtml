@@ -1,0 +1,44 @@
+﻿@model collectCoins.Models.GeneralCoin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>Details of the general coin</h1>
+
+<div>
+    <h4>Coin specifications</h4>
+    <hr />
+    <div class="row section">
+
+        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12 text-center">
+            <img src="@Url.Content("~/Content/Coins/"+@Model.Value.ToString()+"-pound.png")" title="@Model.Value £" class="img-responsive" style="width: 100%;" />
+            <br />
+        </div>
+        
+        <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
+            @Html.DisplayNameFor(model => model.Value): <span class="colored"> &pound;@Html.DisplayFor(model => model.Value) </span><br />
+            @Html.DisplayNameFor(model => model.Diameter): <span class="colored">@Html.DisplayFor(model => model.Diameter) mm</span><br />
+            @Html.DisplayNameFor(model => model.Weight): <span class="colored"> @Html.DisplayFor(model => model.Weight) g </span><br />
+            @Html.DisplayNameFor(model => model.Thickness): <span class="colored"> @Html.DisplayFor(model => model.Thickness) mm </span><br />
+            @Html.DisplayNameFor(model => model.Shape): <span class="colored">@Html.DisplayFor(model => model.Shape) </span><br />
+            @Html.DisplayNameFor(model => model.Material): <span class="colored"> @Html.DisplayFor(model => model.Material) </span> <br />
+
+            <ul class="list-inline">
+                @*<li>
+                    <h3 style="width: 8em;line-height:40px;">
+                        @Html.ActionLink("Modify", "Edit", new { id = Model.GeneralCoinId })
+                    </h3>
+                </li>*@
+                <li>
+                    <h3 style="width: 8em;line-height:40px;">
+                        @Html.ActionLink("Back to coins", "Index")
+                </h3>
+            </li>
+        </ul>
+
+       </div>
+
+    
+     </div>
+</div>

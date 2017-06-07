@@ -1,0 +1,92 @@
+﻿@model IEnumerable<collectCoins.Models.PortretDesigner>
+
+@{
+    ViewBag.Title = "Portret designers";
+}
+
+<h1>Designers of the Portrait of Her Majesty the Queen</h1>
+<div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+
+    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-1">
+
+        <table class="table table-bordered">
+            <tr>
+                <th style="background-color:#f78117; font-size:22px; color:white; text-align:center;">
+                    @*@Html.DisplayNameFor(model => model.Name)*@
+                    @Html.ActionLink("Name","Index",new { sortOrder=ViewBag.NameSort}, new { @style = "text-decoration:none; color:black;" })
+                </th>
+                <th></th>
+                <th><ul class="list-inline">
+    <li>
+        <h3 style="width: 13em;line-height:40px; margin:0;">
+            @Html.ActionLink("Add designer", "Create", new { })
+        </h3>
+    </li>
+</ul></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style="font-size:20px; font-weight:bold;">
+                    <td style="width:40%;">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td style="width:15%;">
+                        @*@Html.ActionLink("Update name", "Edit", new { id = item.DesignerId })*@ 
+                        <a href="@Url.Action("Edit",new { id = item.DesignerId })"><span class="glyphicon glyphicon-edit"></span></a>
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.DesignerId })*@
+                        <h3 name="delete" class="@item.DesignerId" style="margin-bottom:0px;">
+                            @*@Html.ActionLink("Delete", null, new { id = @item.DesignerId }, new { @name = @item.DesignerId })*@
+
+                            <a href="@Url.Action("Delete",new { id = item.DesignerId })" name="@item.DesignerId"><span class="glyphicon glyphicon-trash"></span></a>
+                        </h3>
+
+                        <div class="alert alert-danger hide" id="@item.DesignerId" name="confirm" style="font-size:15px; color:red; width: 100%; background-color:black;">
+                            All the coins in the collection that have this designer will be deleted!! Are you sure you want to delete this designer?
+                            <br />
+                            @Html.ActionLink("Yes", "Delete", new { id = item.DesignerId }, new { @class = "btn btn-sm btn-danger" })
+                            @Html.ActionLink("Cancel", null, null, new { @id = "no", @name = "Cancel", @class = "btn btn-sm btn-warning" })
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+       
+     
+       
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+                    $(document).ready(function () {
+                        $("[name='delete']").click(function (event) {
+                            event.preventDefault();
+                            //alert($(this).attr("class").toString());
+                            $("#" + $(this).attr("class").toString()+"").toggleClass("hide");
+
+
+                        });
+
+
+                       $("[name='Cancel']").click(function (event) {
+                                $("[name='confirm']").addClass("hide");
+
+                            });
+
+        });
+    </script>
+
+    }
+
+

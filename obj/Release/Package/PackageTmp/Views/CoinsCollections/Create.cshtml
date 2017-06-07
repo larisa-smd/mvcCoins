@@ -1,0 +1,111 @@
+﻿@model collectCoins.Models.CoinsCollection
+
+@{
+    ViewBag.Title = "Add coin";
+}
+
+<h1>Coin collection</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <h4>Add new coin</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.GeneralCoinId, "Coin value ", htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.DropDownList("GeneralCoinId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.GeneralCoinId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PortretDesignerId, "Portret designer", htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-4">
+                    @Html.DropDownList("PortretDesignerId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.PortretDesignerId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReverseDesignerId, "Coin's reverse designer", htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-3">
+                    @Html.DropDownList("ReverseDesignerId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.ReverseDesignerId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EdgeId, "Edge inscription", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-3">
+                    @Html.DropDownList("EdgeId",null,"", htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.EdgeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-4">
+                    @*@Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control", @type="date" } })*@
+                    @Html.DropDownList("Year",ViewBag.listOfYears as SelectList)
+                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mintage, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Mintage, new { htmlAttributes = new { @class = "" } })<span style="font-size:12px;">Eg.: 25000</span>
+                    @Html.ValidationMessageFor(model => model.Mintage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EstimatedValues,"Estimated values", htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.EstimatedValues, new { htmlAttributes = new { @class = "" } })<br /><span style="font-size:12px;">Eg.: 1500-2500</span>
+                    @Html.ValidationMessageFor(model => model.EstimatedValues, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" value="Add coin" class="btn-coin" />
+                </div>
+            </div>
+        </div>
+   </div>
+
+
+<div>
+    <ul class="list-inline">
+       
+        <li>
+            <h3 style="width: 8em;line-height:40px;">
+                @Html.ActionLink("Back to collection", "Index")
+        </h3>
+    </li>
+</ul>
+
+</div>
+
+
+}
+
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

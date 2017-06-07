@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Designers";
+}
+
+<h1>Designers</h1>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align:center;">
+        <img src="~/Content/Coins/portret.png" class="img-responsive img-circle image-designer" />
+        <h2>Portrait of Her Majesty the Queen</h2>
+       
+        <input type="button" value="Show designers" onclick="location.href='@Url.Action("Index","PortretDesigners")'" class="btn-coin" />
+        
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align:center;">
+        
+        <img src="~/Content/Coins/reverse.png" class="img-responsive img-circle image-designer" />
+        <h2>Designers of the reverse side of the coin</h2>
+        
+        <input type="button" value="Show designers" onclick="location.href='@Url.Action("Index","ReverseDesigners")'" class="btn-coin"/>
+       
+    </div>
+</div>
+    
+
+

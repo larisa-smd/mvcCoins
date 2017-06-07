@@ -1,0 +1,119 @@
+﻿@model collectCoins.Models.GeneralCoin
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1>Edit general coin</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <div class="row">
+                <h4>Edit the coin information</h4>
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.GeneralCoinId)
+
+
+                <table class="table table-responsive table-condensed">
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "" } })
+                            @*@Html.DropDownList("Value",ViewBag.Value as SelectList)*@
+                            @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Diameter, htmlAttributes: new { @class = "control-label " })
+                        </td >
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Diameter, new { htmlAttributes = new { @class = "" } }) mm
+                            @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label " })   
+                           </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "" } }) g
+                            @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Thickness, htmlAttributes: new { @class = "control-label " })
+                        </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Thickness, new { htmlAttributes = new { @class = "" } }) mm
+                            @Html.ValidationMessageFor(model => model.Thickness, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Shape, htmlAttributes: new { @class = "control-label " })
+                        </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Shape, new { htmlAttributes = new { @class = "" } })
+                            @Html.ValidationMessageFor(model => model.Shape, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "" } })
+                            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Material, htmlAttributes: new { @class = "control-label " })
+                        </td>
+                        <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Material, new { htmlAttributes = new { @class = "" } })
+                            @Html.ValidationMessageFor(model => model.Material, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                 </table>
+                
+                    <ul class="list-inline" style="text-align:center;">
+                        <li>
+                            <h3 style="width: 8em;line-height:40px;">
+                                @Html.ActionLink("Back to coins", "Index")
+                            </h3>
+                        </li>
+                        <li>
+                            <input type="submit" value="Save" class="btn-coin" style="line-height:40px;" />
+
+                        </li>
+                    </ul>
+
+                    @*<div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn-coin" />
+                        </div>
+                    </div>*@
+                </div>
+        </div>
+    </div>
+
+}
+
+            
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

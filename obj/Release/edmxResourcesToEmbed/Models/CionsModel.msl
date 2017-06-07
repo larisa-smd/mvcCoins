@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoinsDataModelStoreContainer" CdmEntityContainer="CoinsDataEntities3">
+    <EntitySetMapping Name="CoinsCollections">
+      <EntityTypeMapping TypeName="CoinsDataModel.CoinsCollection">
+        <MappingFragment StoreEntitySet="CoinsCollection">
+          <ScalarProperty Name="CoinId" ColumnName="CoinId" />
+          <ScalarProperty Name="GeneralCoinId" ColumnName="GeneralCoinId" />
+          <ScalarProperty Name="PortretDesignerId" ColumnName="PortretDesignerId" />
+          <ScalarProperty Name="ReverseDesignerId" ColumnName="ReverseDesignerId" />
+          <ScalarProperty Name="EdgeId" ColumnName="EdgeId" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Mintage" ColumnName="Mintage" />
+          <ScalarProperty Name="EstimatedValues" ColumnName="EstimatedValues" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EdgeInscriptions">
+      <EntityTypeMapping TypeName="CoinsDataModel.EdgeInscription">
+        <MappingFragment StoreEntitySet="EdgeInscription">
+          <ScalarProperty Name="EdgeId" ColumnName="EdgeId" />
+          <ScalarProperty Name="Inscription" ColumnName="Inscription" />
+          <ScalarProperty Name="Translation" ColumnName="Translation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GeneralCoins">
+      <EntityTypeMapping TypeName="CoinsDataModel.GeneralCoin">
+        <MappingFragment StoreEntitySet="GeneralCoin">
+          <ScalarProperty Name="GeneralCoinId" ColumnName="GeneralCoinId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Thickness" ColumnName="Thickness" />
+          <ScalarProperty Name="Shape" ColumnName="Shape" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MyCollections">
+      <EntityTypeMapping TypeName="CoinsDataModel.MyCollection">
+        <MappingFragment StoreEntitySet="MyCollection">
+          <ScalarProperty Name="CoinId" ColumnName="CoinId" />
+          <ScalarProperty Name="NoOfCoins" ColumnName="NoOfCoins" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortretDesigners">
+      <EntityTypeMapping TypeName="CoinsDataModel.PortretDesigner">
+        <MappingFragment StoreEntitySet="PortretDesigner">
+          <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReverseDesigners">
+      <EntityTypeMapping TypeName="CoinsDataModel.ReverseDesigner">
+        <MappingFragment StoreEntitySet="ReverseDesigner">
+          <ScalarProperty Name="DesignerId" ColumnName="DesignerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

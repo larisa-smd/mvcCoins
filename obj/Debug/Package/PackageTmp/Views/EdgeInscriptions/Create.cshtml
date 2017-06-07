@@ -1,0 +1,59 @@
+﻿@model collectCoins.Models.EdgeInscription
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Add edge inscription</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <h4>Add new inscription</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Inscription, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Inscription, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Inscription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Translation, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Translation, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Translation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" value="Add inscription" class="btn-coin" />
+                </div>
+            </div>
+        </div>
+    </div>
+        }
+
+      <div>
+    <ul class="list-inline">
+
+        <li>
+            <h3 style="width: 8em;line-height:40px;">
+                @Html.ActionLink("Back to inscriptions", "Index", null, null, new { href = Request.UrlReferrer })
+            </h3>
+        </li>
+    </ul>
+
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

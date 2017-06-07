@@ -1,0 +1,92 @@
+﻿@model collectCoins.Models.CoinsCollection
+
+@{
+    ViewBag.Title = "Details";
+    var imgDir = "~/Content/Coins/";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Coin specifications</h4>
+    <hr />
+    <div class="row section">
+
+        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12 text-center">
+            <img src="@Url.Content(imgDir + Model.Image)" alt="@Model.Image" class="img-responsive" style="width: 100%;"/>
+            @Html.DisplayNameFor(model => model.Image):   <span class="colored">
+                @Html.DisplayFor(model => model.Image)
+            </span><br />
+        </div>
+        
+        <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12" >
+           @Html.DisplayNameFor(model => model.Year):    <span class="colored"> @Html.DisplayFor(model => model.Year)</span><br />
+        
+            @Html.DisplayNameFor(model => model.Mintage):      <span class="colored">
+    @Html.DisplayFor(model => model.Mintage)
+</span><br />
+
+    @Html.DisplayNameFor(model => model.EstimatedValues):  <span class="colored">
+    @Html.DisplayFor(model => model.EstimatedValues)
+</span><br />
+
+  
+
+    @Html.DisplayNameFor(model => model.EdgeInscription.Inscription):  <span class="colored">
+            
+    @Html.DisplayFor(model => model.EdgeInscription.Inscription) 
+</span> <br />
+
+            @Html.DisplayNameFor(model => model.EdgeInscription.Translation):  <span class="colored">
+                @Html.DisplayFor(model => model.EdgeInscription.Translation)
+            </span> <br />
+
+            @Html.DisplayNameFor(model => model.GeneralCoin.Value):  <span class="colored">&pound;
+                @Html.DisplayFor(model => model.GeneralCoin.Value)
+            </span><br />
+
+            @Html.DisplayNameFor(model => model.GeneralCoin.Diameter):  <span class="colored">
+                @Html.DisplayFor(model => model.GeneralCoin.Diameter) cm
+            </span><br />
+
+            @Html.DisplayNameFor(model => model.GeneralCoin.Weight):  <span class="colored">
+                @Html.DisplayFor(model => model.GeneralCoin.Weight) g
+            </span><br />
+
+            @Html.DisplayNameFor(model => model.GeneralCoin.Thickness):  <span class="colored">
+                @Html.DisplayFor(model => model.GeneralCoin.Thickness) cm
+            </span><br />
+
+            @Html.DisplayNameFor(model => model.GeneralCoin.Material):  <span class="colored">
+                @Html.DisplayFor(model => model.GeneralCoin.Material)
+            </span><br />
+
+    @Html.DisplayNameFor(model => model.GeneralCoin.Shape):  <span class="colored">
+    @Html.DisplayFor(model => model.GeneralCoin.Shape)
+</span><br />
+
+    Name of the portret designer :  <span class="colored">
+    @Html.DisplayFor(model => model.PortretDesigner.Name)
+</span><br />
+
+    Name of the reverse designer:  <span class="colored">
+    @Html.DisplayFor(model => model.ReverseDesigner.Name)
+</span>
+            <br />
+            <div>
+                <ul class="list-inline">
+                    <li>
+                        <h3 style="width: 8em;line-height:40px;">
+                            @Html.ActionLink("Modify", "Edit", new { id = Model.CoinId }) </h3>
+                        </li>
+                    <li>
+                        <h3 style="width: 8em;line-height:40px;">@Html.ActionLink("Back to collection", "Index")
+                        </h3>
+</li>
+                          </ul>
+
+            </div>
+</div>
+      </div>
+</div>
+

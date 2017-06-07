@@ -1,0 +1,100 @@
+﻿@model collectCoins.Models.GeneralCoin
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h1>Add general coin</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <h4>Add new coin</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Value, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "" } }) &pound;
+                    @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Diameter, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Diameter, new { htmlAttributes = new { @class = "" } }) mm
+                    @Html.ValidationMessageFor(model => model.Diameter, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Weight, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Weight, new { htmlAttributes = new { @class = "" } }) g
+                    @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Thickness, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Thickness, new { htmlAttributes = new { @class = "" } }) mm
+                    @Html.ValidationMessageFor(model => model.Thickness, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Shape, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Shape, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Shape, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Material, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Material, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Material, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" value="Add coin" class="btn-coin" />
+                </div>
+            </div>
+        </div>
+   </div>
+        }
+
+       
+<div>
+    <ul class="list-inline">
+
+        <li>
+            <h3 style="width: 8em;line-height:40px;">
+                @Html.ActionLink("Back to collection", "Index")
+            </h3>
+        </li>
+    </ul>
+
+</div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<collectCoins.Models.EdgeInscription>
+
+@{
+    ViewBag.Title = "Edge inscriptions";
+}
+
+<h1>Edge inscriptions</h1>
+
+<div class="row">
+    
+
+    <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+
+        <table class="table table-bordered">
+            <tr>
+                <th style="background-color:#f78117; font-size:22px; color:white; text-align:center;">
+                    @*@Html.DisplayNameFor(model => model.Inscription)*@
+                    @Html.ActionLink("Inscription","Index",new { sortOrder = ViewBag.InscriptionSort}, new { @style = "text-decoration:none; color:black;" })
+                </th>
+                <th style="background-color:#f78117; font-size:22px; color:white; text-align:center;">
+                    @Html.DisplayNameFor(model => model.Translation)
+                </th>
+                <th style=""></th>
+            </tr>
+           
+
+            @foreach (var item in Model)
+            {
+                <tr style="font-size:20px; font-weight:bold;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inscription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Translation)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.EdgeId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EdgeId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <ul class="list-inline">
+            <li>
+                <h3 style="width: 13em;line-height:40px;">
+                    @Html.ActionLink("Add inscription", "Create", new { })
+                </h3>
+            </li>
+        </ul>
+        </div>
+</div>

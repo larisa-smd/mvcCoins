@@ -1,0 +1,88 @@
+﻿@model collectCoins.Models.CoinsCollection
+
+@{
+    ViewBag.Title = "Update";
+
+   
+}
+
+<h1>Coin collection</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <div class="row">
+                <h4>Update the coin information</h4>
+                <hr />
+
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CoinId)
+                
+                
+                <table class="table table-responsive table-condensed" >
+                    <tr><td class="col-lg-4 col-md-4 col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.GeneralCoinId, "Coin value", htmlAttributes: new { @class = "control-label" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.DropDownList("GeneralCoinId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.GeneralCoinId, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4 col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.PortretDesignerId, "Name of the portret designer", htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.DropDownList("PortretDesignerId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.PortretDesignerId, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.ReverseDesignerId, "Name of the reverse designer", htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.DropDownList("ReverseDesignerId", null, htmlAttributes: new { @class = "" })
+                    @Html.ValidationMessageFor(model => model.ReverseDesignerId, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.EdgeId, "Edge inscription", htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.DropDownList("EdgeId", null, htmlAttributes: new { @class = "", @style="width: 90%;" })
+                    @Html.ValidationMessageFor(model => model.EdgeId, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.DropDownList("Year", ViewBag.listOfYears as SelectList)
+
+                    @*@Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.Mintage, htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.EditorFor(model => model.Mintage, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.Mintage, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.EstimatedValues, "Estimated values", htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.EditorFor(model => model.EstimatedValues, new { htmlAttributes = new { @class = "" } })
+                    @Html.ValidationMessageFor(model => model.EstimatedValues, "", new { @class = "text-danger" })</td></tr>
+                    <tr><td class="col-lg-4 col-md-4  col-sm-11 col-sx-11"  style="text-align:right;">@Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label", @style = "text-align: right;" })</td>
+                    <td class="col-lg-6 col-md-6 col-sm-11 col-sx-11">@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "", @style="width: 90%;" } })
+                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })</td></tr>
+
+                </table>
+
+                  @*<div>
+                      <input type="submit" value="Save" class="btn-coin" />
+                      <h3>@Html.ActionLink("Back to List", "Index")</h3>
+
+                  </div>*@         
+                    
+                <div>
+                    <ul class="list-inline" style="text-align:center;">
+                        <li>
+                            <h3 style="width: 8em;line-height:40px;">
+                                @Html.ActionLink("Back to collection", "Index")
+                            </h3>
+                        </li>
+                        <li>
+                                <input type="submit" value="Save" class="btn-coin" style="line-height:40px;"/>
+                           
+                    </li>
+                </ul>
+
+            </div>
+
+                
+              
+            </div>
+          </div>
+    </div>
+           
+              
+}
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

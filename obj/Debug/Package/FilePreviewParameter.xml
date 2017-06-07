@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="larisas-001-site2" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Issa\\documents\\visual\ studio\ 2015\\Projects\\collectCoins\\collectCoins\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Issa\\documents\\visual\ studio\ 2015\\Projects\\collectCoins\\collectCoins\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="larisas-001-site2/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Issa\\documents\\visual\ studio\ 2015\\Projects\\collectCoins\\collectCoins\\obj\\Debug\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="collectCoins.Models.CoinsDataEntities-Web.config Connection String" description="" value="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=C:\USERS\ISSA\APPDATA\LOCAL\MICROSOFT\VISUALSTUDIO\SSDT\COINSDATA\COINSDATA.MDF;Integrated Security=True;Connect Timeout=30" tags="" />
+  <parameter name="CoinsDataEntities-Web.config Connection String" description="CoinsDataEntities Connection String used in web.config by the application to access the database." value="Data Source=SQL5036.Smarterasp.net;Initial Catalog=DB_A13FA2_larisas;User Id=DB_A13FA2_larisas_admin;Password=Domnica3122;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Issa\\documents\\visual\ studio\ 2015\\Projects\\collectCoins\\collectCoins\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CoinsDataEntities']/@connectionString" />
+  </parameter>
+</parameters>

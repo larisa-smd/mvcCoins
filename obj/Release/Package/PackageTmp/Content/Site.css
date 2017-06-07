@@ -1,0 +1,605 @@
+/* Website template by freewebsitetemplates.com */
+/*------------------------- Layout styles ------------------------*/ 
+body{
+	margin:0;
+	background:url(images/bg-body.jpg);
+}
+.page{
+	background:url(images/bg-header.jpg) no-repeat center top;
+}
+
+/*------------------------- Font ------------------------*/ 
+@font-face {
+    font-family: 'RokkittRegular';
+    src: url('rokkitt-regular-webfont.eot');
+    src: url('rokkitt-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('rokkitt-regular-webfont.woff') format('woff'),
+         url('rokkitt-regular-webfont.ttf') format('truetype'),
+         url('rokkitt-regular-webfont.svg#RokkittRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*------------------------- Header ------------------------*/ 
+.header{
+	background:url(images/bg-navigation.jpg) no-repeat center 90px;
+	width:940px;
+	margin:0 auto;
+	height:105px;
+	padding:36px 10px 0;
+}
+.header a#logo{
+	display:block;
+	float:left;
+	outline:none;
+}
+.header a#logo img{
+	border:0;
+}
+.header ul{
+	margin:0;
+	list-style:none;
+	padding:13px 0 0;
+	float:right;
+}
+.header ul li{
+	float:left;
+	margin:0 0 0 50px;
+}
+.header ul li.selected a,.header ul li a:hover{
+	color:#f78117;
+}
+.header ul li a{
+	font-size:1.6em;;
+	text-decoration:none;
+	color:black;
+	font-family: 'RokkittRegular';
+	outline:none;
+}
+
+/*------------------------- Body ------------------------*/ 
+.body{
+	width:940px;
+	margin:0 auto;
+	padding:0 10px;
+	overflow:hidden;
+}
+    .body div#featured {
+        background: url(Coins/coin2.png) no-repeat right top;
+        margin-top:4em;;
+        /*height: 448px;*/
+        padding: 0 0 17px;
+    }
+
+.body div#featured h3{
+	color:#f78117;
+	font-size:36px;
+	font-family: 'RokkittRegular';
+	margin:0 0 30px;
+	width:490px;
+	/*padding:100px 0 0;*/
+	font-weight:normal;
+}
+.body div#featured p{
+	width:480px;
+	color:black;
+	font-family: 'RokkittRegular';
+	font-size:20px;
+	line-height:25px;
+	text-shadow: 0 1px 0 #fcfcfc;
+	text-align:justify;
+	margin:0;
+}
+.body div#featured input{
+	background:url(images/interface.jpg) no-repeat;
+	border:0;
+    height:48px;
+    width:216px;
+	font-family: 'RokkittRegular';
+	color:#fff;
+	font-size:30px;
+	margin:28px 0 0 125px;
+	cursor:pointer;
+	outline:none;
+}
+
+
+
+.body div ul.blog{
+	list-style:none;
+	margin:40px 0 0;
+	padding:0 0 50px;
+	background:url(images/separator.jpg) no-repeat center top;
+	overflow:hidden;
+}
+.body div ul.blog li:first-child{
+	/*margin:60px 0 0;*/
+}
+.body div ul.blog li{
+	float:left;
+	background:/*url(images/interface.jpg)*/ no-repeat 0 -68px!important;
+	margin:60px 0 0 48px;
+	height:400px;
+	padding:0;
+}
+.body div ul.blog li div{
+	width:281px;
+	height:380px;
+	text-align:center;
+	padding: 8px 0 20px 0;
+	float:none;
+	margin:0;
+	background:none;
+}
+.body div ul.blog li div a img{
+	border:3px solid black;
+	margin:0 0 0 -3px;
+}
+.body div ul.blog li div a img:hover{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+.body div ul.blog li div p{
+	width:258px;
+	text-align:justify;
+	color:#828081;
+	font-family: 'RokkittRegular';
+	margin:17px 0 0 10px;
+	line-height:20px;
+	font-size:14px;
+	background:none;
+	padding:0;
+}
+.body div ul.blog li div a:first-child{
+	margin:0;
+	padding:0;
+	background:none;
+	width:auto;
+}
+.body div ul.blog li div a:hover{
+	color:#F78117;
+}
+.body div ul.blog li div a{
+	color:#606060;
+	font-family: 'RokkittRegular';
+	font-style:italic;
+	text-decoration:none;
+	padding:98px 0 0;
+	margin:32px auto 0;
+	display:block;
+	width: 150px;
+	background:url(images/button-more.jpg) no-repeat center top;
+	outline:none;
+	font-size:16px;
+	font-weight:normal;
+	text-shadow: 0 1px 0 #fcfcfc;
+}
+.body h3{
+	font-family: 'RokkittRegular';
+	font-size:18px;
+	font-weight:bold;
+	color:#636363;
+	margin:15px 0 0;
+	
+}
+.body p{
+	font-family: 'RokkittRegular';
+	font-size:18px;
+	text-align:justify;
+	margin:0 0 20px;
+	line-height:20px;
+}
+.body p a{
+	outline:none;
+    color: black;
+}
+.body ul{
+	list-style:none;
+    margin:0;
+    padding:0;
+	overflow:hidden;
+}
+.body ul li:first-child{
+	/*background:none;
+	padding:0 0 30px;*/
+}
+.body ul li{
+	/*overflow:hidden;*/
+	/*background:url(images/separator.jpg) no-repeat center top;*/
+	/*padding:20px 0 0 0;*/
+}
+.body ul li div.featured{
+	background:url(images/interface.jpg) no-repeat 0 -68px;
+	width:281px;
+	height:292px;
+	text-align: center;
+	margin:0;
+}
+.body ul li div.featured img{
+	margin:10px 0 0 -3px;
+	border:0;
+}
+.body ul li div.featured ul{
+	overflow:hidden;
+	margin:2px 0 0 10px;
+	
+}
+.body ul li div.featured ul li:first-child{
+	margin:0;
+}
+.body ul li div.featured ul li{
+	float:left;
+	margin:0 0 0 18px;
+	background:none;
+	padding:0;
+}
+.body ul li div.featured ul li a{
+	padding:0;
+}
+.body ul li div.featured ul li a img{
+	margin:0;
+}
+.body ul li div.featured ul li a img:hover{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+.body ul li div.featured a{
+	clear:both;
+	display:block;
+	font-size:13px;
+	font-family: 'RokkittRegular';
+	text-decoration:none;
+	color:#8a8889;
+	font-weight:bold;
+	padding:5px 0 0;
+	width:auto;
+	outline:none;
+}
+.body ul li div{
+	float:left;
+	margin:0 0 0 50px;
+	width:609px;
+	background:url(images/button-more.jpg) no-repeat left bottom;
+}
+.body ul li div h3{
+	margin:0;
+	font-size:20px;
+	font-weight:bold;
+	font-family: 'RokkittRegular';
+	color:#f28220;
+	line-height:22px;
+}
+.body ul li div p{
+	line-height:22px;
+	font-family: 'RokkittRegular';
+	font-size:14px;
+	color:#5D5D5D;
+	padding:0 0 90px;
+	margin:0;
+}
+.body ul.paging{
+	margin:15px 0 10px 210px;
+}
+.body ul.paging li{
+	float:left;
+	padding:0 5px;
+	background:none;
+}
+.body ul.paging li a{
+	text-decoration:none;
+	color:#ff7e0d;
+	font-family: arial;
+	font-size:12px;
+}
+.body ul.paging li a:hover{
+	color:#5D5D5D;
+}
+
+.body ul li:first-child {
+/*padding: 20px 0 0 0;*/    
+    }
+
+
+.btn-choise {
+    border: 0;
+    height: 36px;
+    font-family: 'RokkittRegular';
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+} 
+
+li.coin-pocket {
+     
+    margin: 15px auto; 
+    border: 4px solid black; 
+    align-content:center;
+
+}
+
+li.coin-pocket p {
+     align-content:center;
+     text-align:center;
+     align-items:center;
+}
+
+.coin-pocket img{
+    margin: 0.5em 1em;
+    width: 9.6em;
+    
+}
+
+.coin-pocket h2 {
+    background-color:black;
+    color:white;
+    text-align: center;
+   
+}
+
+.body ul li div {
+background: none;
+margin-left: 2px;
+}
+
+.body ul li p {
+    color:black;
+    font-size: 18px;
+}
+
+.onoffswitch {
+    position: relative; 
+    width: 90px !important;
+    -webkit-user-select:none; 
+    -moz-user-select:none;
+     -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; 
+    overflow: hidden; 
+    cursor: pointer;
+    border: 2px solid #999999; 
+    border-radius: 5px;
+}
+.onoffswitch-inner {
+    display: block;
+     width: 200%; 
+     margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 26px;
+    font-size: 16px; color: white; /*font-family: Trebuchet, Arial, sans-serif;*/ font-weight: bold;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+.onoffswitch-inner:before {
+    content: "Got it";
+    padding-left: 16px;
+    font-family: 'RokkittRegular';
+    /*background-color: #f78117; color: #000000;*/
+    border: 1px solid #cf6128;
+    background-color: #f6a259; color: #000000;
+}
+.onoffswitch-inner:after {
+    content: "Need it";
+    padding-right: 16px;
+    font-family: 'RokkittRegular';
+    background-color: #000000; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 72px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+.coin-no {
+   margin: 5px 2px 5px 5px;
+    width: 25px;
+}
+
+.general-coin{
+    align-content:center; 
+    text-align:center;
+    margin: 20px;
+    /*padding:10px;*/
+    /*border: 1px solid black;*/
+}
+
+
+li h3 {
+    background-color:black;
+     font-family: 'RokkittRegular';
+     color:white;
+     margin: 0 auto;
+}
+
+li h3 a{
+    text-decoration:none;
+    color:white;
+}
+
+li h3 a:hover, a:focus{
+    text-decoration:none;
+    color:#f78117;
+}
+
+.image-designer {
+    width: 50%; 
+    margin: 0 auto;
+}
+
+
+
+
+/*------------------------- Footer ------------------------*/ 
+.footer{
+	width:940px;
+	background:url(images/bg-footer.jpg) no-repeat center top;
+	padding:65px 10px 207px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.footer ul{
+	list-style:none;
+	margin:0 0 0 60px;
+	padding:0;
+	overflow:hidden;
+	float:left;
+}
+.footer ul li:first-child a{
+	border:none;
+	/*padding:0 6px 0 0;*/
+}
+.footer ul li{
+	float:left;
+}
+.footer ul li a:hover{
+	color:#F78117;
+}
+.footer ul li a{
+	border-width: 1px;
+	border-color:#5b5b5b;
+	border-style: none none none solid;
+	color:#5b5b5b;
+	font-size:10px;
+	font-family: Trebuchet MS;
+	text-decoration:none;
+	font-weight:bold;
+	padding:0 6px;
+	outline:none;
+}
+.footer p{
+	color:#5b5b5b;
+	font-size:10px;
+	font-family: Trebuchet MS;
+	font-weight:bold;
+	float:left;
+	margin:6px 0 0 135px;
+}
+.footer div.connect{
+	float:left;
+	margin:0 0 0 92px;
+}
+.footer div.connect a{
+	float:left;
+	outline:none;
+}
+.footer div.connect a#facebook{
+	width:27px;
+	height:28px;
+	display:block;
+	text-indent:-9999px;
+	background:url(images/icons.gif) no-repeat;
+}
+.footer div.connect a#twitter{
+	width:36px;
+	height:28px;
+	display:block;
+	text-indent:-9999px;
+	background:url(images/icons.gif) no-repeat 0 -48px;
+	margin:0 0 0 68px;
+}
+.footer div.connect a#vimeo{
+	width:32px;
+	height:28px;
+	display:block;
+	text-indent:-9999px;
+	background:url(images/icons.gif) no-repeat 0 -96px;
+	margin:0 0 0 73px;
+}
+
+.coin {
+    width: 100px;
+}
+
+.btn-coin{
+   background:url(images/interface.jpg) no-repeat;
+    border: 0;
+    height: 45px;
+    margin: 5px;
+    font-family: 'RokkittRegular';
+    padding: 5px;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    outline: none;
+    text-decoration:none;
+}
+
+ .btn-coin:hover {
+    text-decoration: none;
+    color:white;
+    }
+
+h1 {
+    color: #f78117;
+    font-size: 42px;
+    font-family: 'RokkittRegular';
+    margin: 0 0 30px;
+    text-align: center;
+    padding: 20px 0 0;
+    font-weight: normal;
+    
+}
+
+.body ul li h3 {
+    
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'RokkittRegular';
+    color: #f28220;
+    line-height: 22px;
+}
+
+.img-circle{
+    margin: 0 auto;
+}
+
+.body div ul.blog li {
+    text-align:center;
+}
+
+.section {
+   
+    border: 2px solid #f28220;
+     font-family: 'RokkittRegular';
+      font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.some_text{
+    font-size: 28px;
+    font-weight:bold;
+    font-family: 'RokkittRegular';
+    color: black;
+    background-color: #f28220;
+    width: 5em;
+}
+
+.col-xs-12,  .col-sm-8,  .col-md-7, .col-lg-7{
+    padding-right: 0;
+}
+
+.colored {
+    color:#f78117;
+    font-weight:bold;
+}

@@ -1,0 +1,132 @@
+﻿@model PagedList.IPagedList<collectCoins.Models.CoinsCollection>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Collection";
+    var imgDir = "~/Content/Coins/";
+}
+
+<h1>Collection of UK coins</h1>
+
+
+<div class="container section">
+  
+    @using (Html.BeginForm("Index", "CoinsCollections", FormMethod.Get))
+    { <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align:justify;">
+            <span style="font-size: 26px; font-weight:bold;">All coins from the year:</span>
+            @Html.DropDownList("searchYear", ViewBag.listOfYears as SelectList, "All years", new { @max = "2017", @class = "some-text" })
+
+            <input type="submit" value="Search" class="btn-coin" />
+            <br />
+            <span style="font-size: 26px; font-weight:bold;">
+                Coins of value:
+            </span>
+            @Html.DropDownList("valSearch", ViewBag.listOfValues as SelectList, "All values", new { @class = "some-text" })
+
+            <input type="submit" value="Filter" class="btn-coin" />
+        </div>
+        <div class="col-lg-1 col-md-1"> </div>
+
+
+       <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 text-center">
+        <ul class="list-inline">
+            <li>
+                <h3 style="width: 13em;line-height:40px;">
+                    @Html.ActionLink("Add new coin", "Create", new { })
+                </h3>
+            </li>
+            @*<li>
+                    <h3 style="width: 13em;line-height:40px;">@Html.ActionLink("Update my collection", "UpdateCollection", new { })</h3>
+                </li>*@
+            <li>
+                @Html.ActionLink("Sort by year", "Index", new { yearSortOrder = ViewBag.DateSortParam, currentFilter = ViewBag.CurrentFilter }, new { @class = "btn-coin" })
+            </li>
+        </ul>
+        </div>
+    </div>
+    }
+
+        @*@Html.ActionLink("£ 1", "Index", new {  valSearch = "1",  currentFilter = ViewBag.CurrentFilter }, new { @class = "btn-coin" })
+
+            @Html.ActionLink("£ 2", "Index", new {  valSearch = "2", currentFilter = ViewBag.CurrentFilter }, new { @class = "btn-coin", @name = "valSearch", @value = "2" })
+
+            @Html.ActionLink("50 pence", "Index", new { valSearch = "0.5", currentFilter = ViewBag.CurrentFilter }, new { @class = "btn-coin", @name = "valSearch", @value = "0.5" })
+
+            @Html.ActionLink("20 pence", "Index", new { valSearch = "0.2", currentFilter = ViewBag.CurrentFilter }, new { @class = "btn-coin", @name = "valSearch", @value = "0.2" })
+
+            @Html.ActionLink("All", "Index", new { valSearch = ""}, new { @class = "btn-coin" })*@
+    </div>
+
+
+<ul class="list-inline"  >
+@foreach (var item in Model)
+{
+    <li class="coin-pocket">
+        <p>
+
+            <a href="@Url.Action("Details", new { id = item.CoinId })">
+
+
+                @if ((item.Image != "- no image -") && (item.Image != null))
+                {
+                    <img src="@Url.Content(imgDir + item.Image)" alt="@item.Image" name="@item.CoinId" title="Details" class="img-responsive img-circle" />
+
+                }
+                else
+                { <img src="@Url.Content(imgDir + "empty-coin.jpg")" alt="@item.Image" name="@item.CoinId" class="coin img-responsive img-circle" />
+
+                }
+
+            </a>
+           
+        <hr />
+        <h2>@item.Year - &pound;@item.GeneralCoin.Value </h2>
+        @*<div class="onoffswitch">
+            <input type="checkbox" name="choise" class="onoffswitch-checkbox" id="@item.CoinId">
+            <label class="onoffswitch-label" for="@item.CoinId">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>*@
+
+        @*<input type="text" name="@item.CoinId" class="coin-no" disabled value="1" /><span>pcs</span>*@
+
+        <h3 style="margin-bottom:0px; padding-bottom:0px; border-bottom: 1px solid white;">
+            @Html.ActionLink("Update specifications", "Edit", new { id = item.CoinId })
+        </h3><h3 style="margin-top:0px; padding-top:0px;">
+            @Html.ActionLink("Delete", "Delete", new { id = item.CoinId })
+        </h3>
+        
+
+    </li>
+}
+</ul>
+
+@*Page @(Model.PageCount < Model.PageNumber ? 0: Model.PageNumber) of @Model.PageCount*@
+
+@Html.PagedListPager(Model, page=>Url.Action("Index", new { page, yearSortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            $([type = "checkbox"]).click(function () {
+                alert($(this).id);
+                if ($(this).is(":checked"))
+                    $([name = $(this).id]).removeAttr("disabled");
+                else
+                    $([name = $(this).id]).attr("disabled", "disabled");
+               
+            });
+        })
+
+    </script>
+
+    }
+
+           
+      

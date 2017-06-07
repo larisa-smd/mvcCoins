@@ -1,0 +1,75 @@
+﻿@model IEnumerable<collectCoins.Models.GeneralCoin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Every day coins</h1>
+
+
+
+<ul class="list-inline">
+   
+@foreach (var item in Model)
+{
+    <li class="general-coin">
+
+     
+        <a href="@Url.Action("Details",new {id = item.GeneralCoinId  })">
+            <img src="@Url.Content("~/Content/Coins/"+@item.Value.ToString()+"-pound.png")" alt="@item.Value" style="width: 13em;" id="@item.GeneralCoinId" name="coin" />
+        </a>
+
+      
+        
+           <h2> 
+        @if (item.Value == 0.01)
+        {
+            @(item.Value * 100); <text>penny</text>
+        }
+        else
+        if (item.Value < 1)
+        {
+               @(item.Value * 100); <text>pence</text>
+           }
+           else
+           {
+               @:&pound; @item.Value
+           }</h2>
+        
+            <h3>
+                @Html.ActionLink("Update specifications", "Edit", new { id = item.GeneralCoinId })
+                
+            </h3>           
+            
+    </li>
+}
+</ul>
+
+
+<div class="section">
+    <h2>Manage the every day coins</h2>
+    <ul class="list-inline">
+        <li>
+            <h3 style="width: 13em;line-height:40px;">
+                @Html.ActionLink("Add new coin", "Create", new { })
+            </h3>
+        </li>
+       
+    </ul>
+
+
+</div>
+
+
+
+@section Scripts{
+    
+<script>
+    $(document).ready(function(){
+        //$("img").click(function () {
+        //    var da = $(this).id;
+        //    alert(da);
+        //})
+    })
+</script>
+    }

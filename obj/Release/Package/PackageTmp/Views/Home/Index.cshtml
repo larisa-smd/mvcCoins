@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div id="featured">
+
+  
+    <h3>The new coins of 2017</h3>
+    <p>Commemorative coin designs have been released to mark the 200th anniversary of the death of Jane Austen, 
+    Sir Isaac Newton’s substantial influence on science, mathematics and minting, the 100th anniversary 
+    of the House of Windsor, the 200th anniversary of thse ‘modern’ Sovereign, the First World War centenary 
+    commemorations continue, and there’s still more to come!</p>
+    <p>
+        <input type="button" class="btn-coin" value="Coins" onclick="location.href='@Url.Action("Index","CoinsCollections")'"/>
+    </p>
+</div>
+<div class="container">
+    <ul class="row blog">
+        <li class="col-lg-3 col-md-3 col-sm-10 col-sm-offset-1">
+         
+                <img src="~/Content/Coins/newton_50p_2017.jpg" alt="" width="150" class="img-circle" />
+                <h3>50 pence coin</h3>
+                <p>
+                    Sir Isaac Newton was the intellectual giant of the seventeenth century’s ‘Scientific Revolution’.
+                    He changed our understanding of mathematics and physics, redefined the way we see the world and shaped
+                    the security of our currency in his role as Master of the Mint. In 2017, we celebrate his genius on a UK 50p.
+                </p>
+
+        </li>
+        <li class="col-lg-3 col-md-3 col-sm-10 col-sm-offset-1">
+            
+                
+                <img src="~/Content/Coins/1pound_2017.jpg" alt="" width="150" class="img-circle " />
+            <h3>£1 coin</h3>
+                <p>
+                    For more than 1,000 years The Royal Mint has paired technology and innovation with continuity and tradition. In 2017 the public will see the new 12-sided £1 coin, hailed as the most secure coin in the world, enter circulation.
+                </p>
+
+
+           
+        </li>
+        <li class="col-lg-3 col-md-3 col-sm-10 col-sm-offset-1">
+           
+               
+                <img src="~/Content/Coins/2pound_2017.jpg" alt="" width="150" class="img-circle " />
+            <h3>£2 coin</h3>
+                <p>
+                    In 2017 we continue our First World War centenary commemorations with the fourth £2 coin, in a five-coin series, which honours the aviators of the First World War. At the outbreak of the First World War few people believed that aircraft would play a major role in the conflict.
+                </p>
+
+
+          
+        </li>
+    </ul>
+
+</div>
+			

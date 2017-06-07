@@ -1,0 +1,56 @@
+﻿@model collectCoins.Models.PortretDesigner
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h1>Update the portret designer</h1>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+        <div class="form-horizontal col-lg-8 col-md-8  col-sm-10  col-xs-12 section">
+            <div class="row">
+                <h4>Portret designer</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.DesignerId)
+
+                <table class="table table-responsive table-condensed">
+                    <tr>
+                        <td class="col-lg-4 col-md-4 col-sm-11 col-sx-11" style="text-align:right;">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                        </td>
+                        <td class="col-lg-7 col-md-7 col-sm-11 col-sx-11">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "", @style = "width: 90%;" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+                <div>
+                    <ul class="list-inline" style="text-align:center;">
+                        <li>
+                            <h3 style="width: 8em;line-height:40px;">
+                                @Html.ActionLink("Back to designers", "Index", null, null, new { href = Request.UrlReferrer})
+                            </h3>
+                        </li>
+                        <li>
+                            <input type="submit" value="Save" class="btn-coin" style="line-height:40px;" />
+
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

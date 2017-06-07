@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoinsDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CoinsCollection">
+    <Key>
+      <PropertyRef Name="CoinId" />
+    </Key>
+    <Property Name="CoinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GeneralCoinId" Type="Int32" Nullable="false" />
+    <Property Name="PortretDesignerId" Type="Int32" Nullable="false" />
+    <Property Name="ReverseDesignerId" Type="Int32" Nullable="false" />
+    <Property Name="EdgeId" Type="Int32" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Mintage" Type="Int64" />
+    <Property Name="EstimatedValues" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MyCollection" Relationship="Self.FK_Coin_ToMyCollection" FromRole="CoinsCollection" ToRole="MyCollection" />
+    <NavigationProperty Name="EdgeInscription" Relationship="Self.FK_CoinsCollection_EdgeInscription" FromRole="CoinsCollection" ToRole="EdgeInscription" />
+    <NavigationProperty Name="GeneralCoin" Relationship="Self.FK_CoinsCollection_GeneralCoin" FromRole="CoinsCollection" ToRole="GeneralCoin" />
+    <NavigationProperty Name="PortretDesigner" Relationship="Self.FK_CoinsCollection_PortretDesigner" FromRole="CoinsCollection" ToRole="PortretDesigner" />
+    <NavigationProperty Name="ReverseDesigner" Relationship="Self.FK_CoinsCollection_ReverseDesigner" FromRole="CoinsCollection" ToRole="ReverseDesigner" />
+  </EntityType>
+  <EntityType Name="EdgeInscription">
+    <Key>
+      <PropertyRef Name="EdgeId" />
+    </Key>
+    <Property Name="EdgeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inscription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Translation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CoinsCollections" Relationship="Self.FK_CoinsCollection_EdgeInscription" FromRole="EdgeInscription" ToRole="CoinsCollection" />
+  </EntityType>
+  <EntityType Name="GeneralCoin">
+    <Key>
+      <PropertyRef Name="GeneralCoinId" />
+    </Key>
+    <Property Name="GeneralCoinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Diameter" Type="Double" Nullable="false" />
+    <Property Name="Weight" Type="Double" Nullable="false" />
+    <Property Name="Thickness" Type="Double" Nullable="false" />
+    <Property Name="Shape" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CoinsCollections" Relationship="Self.FK_CoinsCollection_GeneralCoin" FromRole="GeneralCoin" ToRole="CoinsCollection" />
+  </EntityType>
+  <EntityType Name="MyCollection">
+    <Key>
+      <PropertyRef Name="CoinId" />
+    </Key>
+    <Property Name="CoinId" Type="Int32" Nullable="false" />
+    <Property Name="NoOfCoins" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CoinsCollection" Relationship="Self.FK_Coin_ToMyCollection" FromRole="MyCollection" ToRole="CoinsCollection" />
+  </EntityType>
+  <EntityType Name="PortretDesigner">
+    <Key>
+      <PropertyRef Name="DesignerId" />
+    </Key>
+    <Property Name="DesignerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CoinsCollections" Relationship="Self.FK_CoinsCollection_PortretDesigner" FromRole="PortretDesigner" ToRole="CoinsCollection" />
+  </EntityType>
+  <EntityType Name="ReverseDesigner">
+    <Key>
+      <PropertyRef Name="DesignerId" />
+    </Key>
+    <Property Name="DesignerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CoinsCollections" Relationship="Self.FK_CoinsCollection_ReverseDesigner" FromRole="ReverseDesigner" ToRole="CoinsCollection" />
+  </EntityType>
+  <Association Name="FK_Coin_ToMyCollection">
+    <End Role="CoinsCollection" Type="Self.CoinsCollection" Multiplicity="1" />
+    <End Role="MyCollection" Type="Self.MyCollection" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="CoinsCollection">
+        <PropertyRef Name="CoinId" />
+      </Principal>
+      <Dependent Role="MyCollection">
+        <PropertyRef Name="CoinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoinsCollection_EdgeInscription">
+    <End Role="EdgeInscription" Type="Self.EdgeInscription" Multiplicity="0..1" />
+    <End Role="CoinsCollection" Type="Self.CoinsCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EdgeInscription">
+        <PropertyRef Name="EdgeId" />
+      </Principal>
+      <Dependent Role="CoinsCollection">
+        <PropertyRef Name="EdgeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoinsCollection_GeneralCoin">
+    <End Role="GeneralCoin" Type="Self.GeneralCoin" Multiplicity="1" />
+    <End Role="CoinsCollection" Type="Self.CoinsCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GeneralCoin">
+        <PropertyRef Name="GeneralCoinId" />
+      </Principal>
+      <Dependent Role="CoinsCollection">
+        <PropertyRef Name="GeneralCoinId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoinsCollection_PortretDesigner">
+    <End Role="PortretDesigner" Type="Self.PortretDesigner" Multiplicity="1" />
+    <End Role="CoinsCollection" Type="Self.CoinsCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortretDesigner">
+        <PropertyRef Name="DesignerId" />
+      </Principal>
+      <Dependent Role="CoinsCollection">
+        <PropertyRef Name="PortretDesignerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoinsCollection_ReverseDesigner">
+    <End Role="ReverseDesigner" Type="Self.ReverseDesigner" Multiplicity="1" />
+    <End Role="CoinsCollection" Type="Self.CoinsCollection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReverseDesigner">
+        <PropertyRef Name="DesignerId" />
+      </Principal>
+      <Dependent Role="CoinsCollection">
+        <PropertyRef Name="ReverseDesignerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CoinsDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CoinsCollections" EntityType="Self.CoinsCollection" />
+    <EntitySet Name="EdgeInscriptions" EntityType="Self.EdgeInscription" />
+    <EntitySet Name="GeneralCoins" EntityType="Self.GeneralCoin" />
+    <EntitySet Name="MyCollections" EntityType="Self.MyCollection" />
+    <EntitySet Name="PortretDesigners" EntityType="Self.PortretDesigner" />
+    <EntitySet Name="ReverseDesigners" EntityType="Self.ReverseDesigner" />
+    <AssociationSet Name="FK_Coin_ToMyCollection" Association="Self.FK_Coin_ToMyCollection">
+      <End Role="CoinsCollection" EntitySet="CoinsCollections" />
+      <End Role="MyCollection" EntitySet="MyCollections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoinsCollection_EdgeInscription" Association="Self.FK_CoinsCollection_EdgeInscription">
+      <End Role="EdgeInscription" EntitySet="EdgeInscriptions" />
+      <End Role="CoinsCollection" EntitySet="CoinsCollections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoinsCollection_GeneralCoin" Association="Self.FK_CoinsCollection_GeneralCoin">
+      <End Role="GeneralCoin" EntitySet="GeneralCoins" />
+      <End Role="CoinsCollection" EntitySet="CoinsCollections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoinsCollection_PortretDesigner" Association="Self.FK_CoinsCollection_PortretDesigner">
+      <End Role="PortretDesigner" EntitySet="PortretDesigners" />
+      <End Role="CoinsCollection" EntitySet="CoinsCollections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoinsCollection_ReverseDesigner" Association="Self.FK_CoinsCollection_ReverseDesigner">
+      <End Role="ReverseDesigner" EntitySet="ReverseDesigners" />
+      <End Role="CoinsCollection" EntitySet="CoinsCollections" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
